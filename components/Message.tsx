@@ -10,23 +10,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { EllipsisVertical } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-import { toast } from 'sonner'
 import { useUser } from '@/lib/store/user'
 
 
 const Message = ({val} : {val: Imessage}) => {
   const user = useUser(state => state.user)
-  
-  
+
+
   return (
     <div className='flex gap-2' >
                     <div>
 
-        
-                    <Image 
-                        src={val?.users?.avatar_url || ''} 
-                        alt={val?.users?.display_name || ''} 
+
+                    <Image
+                        src={val?.users?.avatar_url || ''}
+                        alt={val?.users?.display_name || ''}
                         width={40}
                         height={40}
                         className='rounded-full object-cover'
@@ -42,7 +40,7 @@ const Message = ({val} : {val: Imessage}) => {
                     </div>
                     <div className='ml-auto'>
                       {val.users?.id === user?.id && <MessageMenu message={val}/>}
-                      
+
                     </div>
     </div>
   )
